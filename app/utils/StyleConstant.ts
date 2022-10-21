@@ -5,9 +5,3 @@ export const AppColor = {
     red: '#ff0000',
     grey: '#808080',
 };
-
-export const FontSize = {
-    heading: 36,
-    large: 20,
-    medium: 18,
-};

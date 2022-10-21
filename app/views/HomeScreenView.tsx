@@ -15,7 +15,7 @@ type HomeScreenViewProps = {
 const HomeScreenView = (props: HomeScreenViewProps) => {
     const { data, isLoading, rowPress } = props;
 
-    const renderItem = ({item, index}) => (
+    const renderItem = ({item, index}: {item: {url: string, title: string, created_at: string, author: string}, index: number}) => (
         <TouchableOpacity key={index} onPress={() => {rowPress(item)}}>
         <DataTable.Row style={HomeScreenStyle.tableData}>
             <DataTable.Cell>{index}</DataTable.Cell>

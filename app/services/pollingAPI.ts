@@ -1,7 +1,7 @@
-export const pollingAPI = async () => {
+export const pollingAPI = async (page: number) => {
     let result = null;
     try {
-        const response = await fetch(`https://hn.algolia.com/api/v1/search_by_date?tags=story&page=0`);
+        const response = await fetch(`https://hn.algolia.com/api/v1/search_by_date?tags=story&page=${page}`);
         // console.log("response", response);
         const JSONResponse = await response.json();
         // console.log("JSONResponse", JSONResponse);
