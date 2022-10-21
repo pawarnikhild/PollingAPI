@@ -1,10 +1,6 @@
-type pollingAPIProps = {
-    param: number
-}
-export const pollingAPI = async (param: pollingAPIProps) => {
+export const pollingAPI = async () => {
     let result = null;
     try {
-        // const response = await fetch(`https://hn.algolia.com/api/v1/search_by_date?tags=story&page=${param}`);
         const response = await fetch(`https://hn.algolia.com/api/v1/search_by_date?tags=story&page=0`);
         // console.log("response", response);
         const JSONResponse = await response.json();

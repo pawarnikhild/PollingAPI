@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, StatusBar, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native'
+import { View, SafeAreaView, StatusBar, FlatList, TouchableOpacity, ActivityIndicator, Text } from 'react-native'
 
 import { DataTable } from 'react-native-paper'
 
@@ -8,16 +8,12 @@ import HomeScreenStyle from '../styles/HomeScreenStyle'
 
 type HomeScreenViewProps = {
     data: any
-    page: number
     isLoading: boolean
-    setPage: (active: number) => void
-    setShouldCallAPI: (active: boolean) => void
-    callAPI: () => any
     rowPress: (active: any) => void
 }
 
 const HomeScreenView = (props: HomeScreenViewProps) => {
-    const { data, page, isLoading, setPage, setShouldCallAPI, callAPI,  rowPress } = props;
+    const { data, isLoading, rowPress } = props;
 
     const renderItem = ({item, index}) => (
         <TouchableOpacity key={index} onPress={() => {rowPress(item)}}>
@@ -47,11 +43,6 @@ const HomeScreenView = (props: HomeScreenViewProps) => {
                 renderItem={renderItem}
                 onEndReachedThreshold={0.9}
                 style={HomeScreenStyle.flatList}
-                onEndReached={() => {
-                    setPage(page + 1);
-                    // setShouldCallAPI(false);
-                    callAPI();
-                }}            
             />
         </DataTable>
         { isLoading ? <ActivityIndicator size='large'/> : null}
